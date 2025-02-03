@@ -7,3 +7,4 @@
 - A Blob egy File objektummá alakul, így a Cloudinary API megfelelően tudja kezelni.
 - Az uploadFile(file) függvény feltölti a Cloudinary-re, és visszakapjuk az URL-t.
 - Az URL mentésre kerül a Firestore adatbázisba.
+- QR kód beolvasása kamerával

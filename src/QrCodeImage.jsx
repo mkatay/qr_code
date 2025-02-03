@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import html2canvas from 'html2canvas-pro';
 import { uploadFile } from './uploadFile'; // A Cloudinary feltöltő függvény
 
-export const QrCodeImage = ({ element }) => {
+export const QrCodeImage = ({ element,setFlag }) => {
   const [imageSrc, setImageSrc] = useState(null);
   const [uploadStatus, setUploadStatus] = useState('');
 
@@ -26,6 +26,7 @@ export const QrCodeImage = ({ element }) => {
 console.log('Ezt az url-t kell feltölteni a Firestore adatbázisba:',url);
             setImageSrc(url);
             setUploadStatus("Feltöltés sikeres!");
+            setFlag(false)
           }, "image/png");
         } catch (error) {
           console.error("Hiba történt:", error);

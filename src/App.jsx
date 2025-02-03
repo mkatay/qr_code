@@ -2,8 +2,11 @@ import './App.css'
 import React, { useEffect, useRef, useState } from "react";
 import QRCode from "react-qr-code";
 import { QrCodeImage } from './QrCodeImage';
+import { ReadQR } from './ReadQR';
 
 function App() {
+  const [flag,setFlag]=useState(false)
+  const [scanQR,setScanQR]=useState(false)
   const value = '123456';
   const qrCodeRef = useRef(null);
   const [qrElement, setQrElement] = useState(null); // Állapot az aktuális elemhez
@@ -25,7 +28,11 @@ function App() {
           viewBox={`0 0 256 256`}
         />
       </div>
-      <QrCodeImage element={qrElement} />
+      <button onClick={()=>setFlag(true)}>generate and save QR code</button>
+      {flag && <QrCodeImage element={qrElement} setFlag={setFlag}/>}
+<br />
+      <button onClick={()=>setScanQR(true)}>scan QR</button>
+      {scanQR && <ReadQR setScanQR={setScanQR}/>}
     </>
   );
 }
